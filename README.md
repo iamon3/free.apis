@@ -1,13 +1,10 @@
 Overview
 ========
 
-FIFA World Cup 14 is a simple web application developed using JAVA platform. Following tutorial is followed for the development and deployment of the app.
+This is my free sample API server. I followed following links for jersey framework + embeded Jetty server integration.
 
     https://devcenter.heroku.com/articles/getting-started-with-java
-
-I was facing some web app context path issues in finding the resource index.jsp, in the jetty server context. So the project structure is not in the standard format. I have made it to work. I will work on standardazing the project structure soon. 
-
-index.jsp is the only page which depicts the results. Ajax makes API calls to fetch the data of matches, groups, teams etc. The fetched data which is in JSON format is parsed using javascript JSON and is represented in the tabular format.  As of now, UI is not fancy, and I will work on it later.
+    http://www.tzehon.com/2012/11/06/microservices-with-jetty-and-jersey/
 
 
 A] Project Setup
@@ -21,7 +18,7 @@ A] Project Setup
       
    To build the project
    
-    $ git clone https://github.com/iamon3/FIFA-World-Cup-14.git
+    $ git clone https://github.com/iamon3/free.apis.git
     $ mvn clean; mvn package
     $ export PORT=5000
 
@@ -36,9 +33,9 @@ A] Project Setup
       $ 2012-01-31 15:51:21.971:INFO:oejs.AbstractConnector:Started SelectChannelConnector@0.0.0.0:5000
       
       
-   To test the app locallyTo test the app locally
+   To test the app locallyTo test the app locally (Following content will be updated soon. Check after few days.)
   
-      In the browser Enter the URL : http://localhost:5000/src/main/webapp/
+      In the browser Enter the URL : http://localhost:5000/freeapis/services/*
       
       
    To stop the server 
@@ -61,8 +58,8 @@ B] Heroku Deployment Set up
      $ heroku create
      $ git push heroku master
      
-   The demo of the deployed running web app "The FIFA World Cup 14" can be tested at the below mentioned link. 
+   The demo of the deployed running free API server "freeapis" can be tested at the below mentioned link. 
 
-      http://salty-chamber-4774.herokuapp.com/src/main/webapp/
+      http://foo.com/v1        (Will be updated soon)
 
    Please note that in the case of no activity for some time period (e.g. 1hr), web app will go in idle state, in which case    the next URL access may result in the slower response or 404. 
