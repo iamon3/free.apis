@@ -11,6 +11,7 @@ import com.persistence.beans.Topping;
 public class ToppingDao {
 
     private Integer id = 1;
+    // <id, Topping>
     private Map<Integer, Topping> availableToppings = new HashMap<Integer, Topping>();
 
     {

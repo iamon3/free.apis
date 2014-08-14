@@ -8,7 +8,12 @@ import javax.ws.rs.core.Response;
 import javax.ws.rs.WebApplicationException;
 
 import com.persistence.beans.User;
+import com.persistence.beans.Transaction;
 import com.persistence.service.UserService;
+import com.persistence.service.UserTransactionService;
+
+import java.util.List;
+
 /**
  */
 @Path(USERS_SERVICE_PATH)
@@ -16,8 +21,10 @@ public class UserResource {
 
     private static final String AUTHENTICATE_RESOURCE_PATH = "/authenticate";
     private static final String USER_RESOURCE_PATH = "/{userId}";
+    private static final String TRANSACTIONS_RESOURCE_PATH = "/transactions";
 
     private UserService userService = new UserService();
+    private UserTransactionService userTransactionService = new UserTransactionService();
 
     @POST
     @Path("")
@@ -55,9 +62,40 @@ public class UserResource {
         return u;
     }
 
+    @GET
+    @Path(USER_RESOURCE_PATH + TRANSACTIONS_RESOURCE_PATH)
+    @Produces({ MediaType.APPLICATION_XML, MediaType.TEXT_XML, MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN })
+    public List<Transaction> getTransactions(@PathParam("userId") String userId, @QueryParam("emailId") String emailId){
+        List<Transaction> trs = null;
+        try{
+            trs = getUserTransactionService().getUserTransaction(emailId);
+        }catch (Exception e){
+            e.printStackTrace();
+            throw new WebApplicationException(Response.Status.INTERNAL_SERVER_ERROR);
+        }
+        return trs;
+    }
 
+    // TODO : Add one more parameter Transaction
+    @POST
+    @Path(USER_RESOURCE_PATH + TRANSACTIONS_RESOURCE_PATH)
+    @Consumes({ MediaType.APPLICATION_XML, MediaType.TEXT_XML, MediaType.APPLICATION_JSON })
+    @Produces({ MediaType.APPLICATION_XML, MediaType.TEXT_XML, MediaType.APPLICATION_JSON })
+    public Transaction saveTransaction(@PathParam("userId") String userId, @QueryParam("emailId") String emailId, Transaction transaction){
+        Transaction trs = null;
+        try {
+            trs = getUserTransactionService().addUserTransaction(emailId, transaction);
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            throw new WebApplicationException(Response.Status.INTERNAL_SERVER_ERROR);
+        }
+        return trs;
+    }
 
     private UserService getUserService(){
         return userService;
     }
+
+    private UserTransactionService getUserTransactionService(){return  userTransactionService;}
 }
