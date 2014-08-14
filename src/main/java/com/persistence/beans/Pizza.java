@@ -4,6 +4,7 @@ import com.persistence.beans.Topping;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -15,6 +16,24 @@ public class Pizza {
     private String name;
     private String description;
     List<Topping> toppings;
+    private Integer price;
+
+    public Pizza(){
+
+    }
+
+    public Pizza(String id, String name, String description, Integer price) {
+        this.id = id;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.toppings= new ArrayList<Topping>();
+    }
+
+    public void addTopping(Topping topping){
+        this.price += Integer.parseInt(topping.getPrice());
+        toppings.add(topping);
+    }
 
     @XmlElement
     public List<Topping> getToppings() {
@@ -50,5 +69,14 @@ public class Pizza {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    @XmlElement
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
     }
 }

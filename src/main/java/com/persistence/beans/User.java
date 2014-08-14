@@ -2,6 +2,7 @@ package com.persistence.beans;
 
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  */
@@ -11,6 +12,16 @@ public class User {
     private String name;
     private String email;
     private String password;
+
+    public User(){
+    }
+
+    public User(String id, String name, String email, String password) {
+        this.id = id;
+        this.name = name;
+        this.email = email;
+        this.password = password;
+    }
 
     @XmlElement
     public String getName() {
@@ -30,7 +41,7 @@ public class User {
         this.email = email;
     }
 
-    @XmlElement
+    @XmlTransient
     public String getPassword() {
         return password;
     }
