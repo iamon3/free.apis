@@ -29,7 +29,7 @@ public class UserResource {
     }
 
     /**
-     * curl -X GET http://127.0.0.1:5000/freeapis/users
+     * curl -X GET http://127.0.0.1:9090/freeapis/users
      */
     @GET
     @Path(USER_RESOURCE_PATH)
