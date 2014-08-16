@@ -47,8 +47,9 @@ public class UserResource {
     @GET
     @Path(AUTHENTICATE_RESOURCE_PATH)
     @Produces({ MediaType.APPLICATION_XML, MediaType.TEXT_XML, MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN })
-    public User authenticateUser(@QueryParam("password") String password, @QueryParam("emailId") String emailId)
+    public User authenticateUser(@QueryParam("password") String password, @QueryParam("email") String emailId)
     {
+        System.out.print("Password : " + password + ", email : " + emailId);
         User u = new User();
         try{
             u = getUserService().getUser(emailId, password);

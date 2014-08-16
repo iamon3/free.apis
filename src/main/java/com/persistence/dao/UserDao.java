@@ -11,9 +11,10 @@ import com.persistence.beans.User;
 public class UserDao {
 
     private Integer id = 1;
-    private Map<String, User> currentUsers = new HashMap<String, User>();
+    private static Map<String, User> currentUsers = new HashMap<String, User>();
 
     public User getUser(String emailId, String password){
+        System.out.println(">>>>> Current Users : " + currentUsers + "\n");
         if(currentUsers.containsKey(emailId)){
             User u =  currentUsers.get(emailId);
             if(u.getPassword().equals(password)){
@@ -30,6 +31,7 @@ public class UserDao {
     }
 
     public User addUser(User user){
+        System.out.println(">>>>> Current Users : " + currentUsers + "\n");
         if(!currentUsers.containsKey(user.getEmail())){
             user.setId(id.toString());
             currentUsers.put(user.getEmail(), user);
