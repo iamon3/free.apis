@@ -32,6 +32,7 @@ public class UserResource {
     @Produces({ MediaType.APPLICATION_XML, MediaType.TEXT_XML, MediaType.APPLICATION_JSON })
     public User addUser(User user)
     {
+        System.out.println(user);
         User  userAdded = new User();
         userAdded = getUserService().addUser(user);
         if(null == userAdded){

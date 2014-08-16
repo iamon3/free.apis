@@ -37,7 +37,8 @@ public class UserDao {
         }
         else{
             System.out.println("User with email address already present.");
+            return null;
         }
-        return null;
+        return currentUsers.get(user.getEmail());
     }
 }

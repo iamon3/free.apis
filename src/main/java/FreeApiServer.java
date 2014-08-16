@@ -15,7 +15,7 @@ import com.sun.jersey.spi.container.servlet.ServletContainer;
  Following blog was used for jetty + jersey integration.
  http://www.tzehon.com/2012/11/06/microservices-with-jetty-and-jersey/
  */
-public class FreeServer{
+public class FreeApiServer{
 
     public static void main(String[] args) throws Exception{
 
