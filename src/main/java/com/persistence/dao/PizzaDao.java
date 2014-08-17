@@ -10,8 +10,8 @@ import com.persistence.beans.Pizza;
  */
 public class PizzaDao {
 
-    private Integer id = 1;
-    private Map<Integer, Pizza> availablePizzas = new HashMap<Integer, Pizza>();
+    private static Integer id = 1;
+    private static Map<Integer, Pizza> availablePizzas = new HashMap<Integer, Pizza>();
 
     {
         populatePizzas();

@@ -8,10 +8,10 @@ import com.persistence.beans.Transaction;
 /**
  */
 public class TransactionDao {
-    private Integer id = 1;
+    private static Integer id = 1;
 
     //<email, List<Transaction>>
-    private Map<String, ArrayList<Transaction>> userTransactions = new HashMap<String, ArrayList<Transaction>>();
+    private static Map<String, ArrayList<Transaction>> userTransactions = new HashMap<String, ArrayList<Transaction>>();
 
     public List<Transaction> getUserTransaction(String emailId){
         if(!userTransactions.containsKey(emailId)){
