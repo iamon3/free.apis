@@ -10,7 +10,7 @@ import com.persistence.beans.User;
  */
 public class UserDao {
 
-    private Integer id = 1;
+    private static Integer id = 1;
     private static Map<String, User> currentUsers = new HashMap<String, User>();
 
     public User getUser(String emailId, String password){
