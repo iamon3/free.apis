@@ -1,5 +1,6 @@
 package com.persistence.service;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -11,7 +12,7 @@ public class ToppingService {
 
     private ToppingDao toppingDao = new ToppingDao();
 
-    public Map<Integer,Topping> getToppings(){
+    public Collection<Topping> getToppings(){
         return getToppingDao().getToppings();
     }
 

@@ -1,5 +1,6 @@
 package com.persistence.service;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -11,7 +12,7 @@ public class PizzaService {
 
     private PizzaDao pizzaDao = new PizzaDao();
 
-    public Map<Integer, Pizza> getCurrentPizzas(){
+    public Collection<Pizza> getCurrentPizzas(){
         return getPizzaDao().getCurrentPizzas();
     }
 

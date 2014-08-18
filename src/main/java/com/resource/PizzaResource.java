@@ -10,6 +10,7 @@ import javax.ws.rs.WebApplicationException;
 import com.persistence.beans.Pizza;
 import com.persistence.service.PizzaService;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -27,9 +28,9 @@ public class PizzaResource {
     @GET
     @Path("")
     @Produces({ MediaType.APPLICATION_XML, MediaType.TEXT_XML, MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN })
-    public Map<Integer,Pizza> getPizzas()
+    public Collection<Pizza> getPizzas()
     {
-        Map<Integer,Pizza> pizzas = getPizzaService().getCurrentPizzas();
+        Collection<Pizza> pizzas = getPizzaService().getCurrentPizzas();
         if(null != pizzas){
             return pizzas;
         }

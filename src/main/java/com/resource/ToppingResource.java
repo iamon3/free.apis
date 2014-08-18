@@ -10,6 +10,7 @@ import javax.ws.rs.WebApplicationException;
 import com.persistence.beans.Topping;
 import com.persistence.service.ToppingService;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -28,9 +29,9 @@ public class ToppingResource {
     @GET
     @Path("")
     @Produces({ MediaType.APPLICATION_XML, MediaType.TEXT_XML, MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN })
-    public Map<Integer, Topping> getToppings()
+    public Collection<Topping> getToppings()
     {
-        Map<Integer, Topping> toppings = getToppingService().getToppings();
+        Collection<Topping> toppings = getToppingService().getToppings();
         if(null != toppings){
             return toppings;
         }

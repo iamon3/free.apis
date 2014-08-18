@@ -1,5 +1,6 @@
 package com.persistence.dao;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -14,13 +15,14 @@ public class ToppingDao {
     // <id, Topping>
     private static Map<Integer, Topping> availableToppings = new HashMap<Integer, Topping>();
 
+    static
     {
         populateToppings();
     }
 
-    public Map<Integer, Topping> getToppings(){
+    public Collection<Topping> getToppings(){
 
-        return availableToppings;
+        return availableToppings.values();
     }
 
     public Topping getTopping(Integer id){
@@ -34,7 +36,7 @@ public class ToppingDao {
         return availableToppings.get(id-1);
     }
 
-    private void populateToppings(){
+    private static void populateToppings(){
         Topping cheese = new Topping(id.toString(), "cheese", "1");
         availableToppings.put(id, cheese);
         id += 1;
