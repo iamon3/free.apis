@@ -5,8 +5,18 @@
 <web-app>
   <display-name>Archetype Created Web Application</display-name>
 
-<servlet>
-      <!--servlet-name>jersey-servlet</servlet-name>
+    <filter>
+        <filter-name>CORSResponseFilter</filter-name>
+        <filter-class>com.filter.CORSResponseFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>CORSResponseFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+<!--servlet>
+      <servlet-name>jersey-servlet</servlet-name>
       <servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
       <init-param>
          <param-name>com.sun.jersey.config.property.packages</param-name>

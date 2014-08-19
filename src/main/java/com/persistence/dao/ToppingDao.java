@@ -37,22 +37,22 @@ public class ToppingDao {
     }
 
     private static void populateToppings(){
-        Topping cheese = new Topping(id.toString(), "cheese", "1");
+        Topping cheese = new Topping(id.toString(), "cheese", 1);
         availableToppings.put(id, cheese);
         id += 1;
-        Topping peperones = new Topping(id.toString(), "peperones", "1");
+        Topping peperones = new Topping(id.toString(), "peperones", 1);
         availableToppings.put(id, peperones);
         id += 1;
-        Topping onions = new Topping(id.toString(), "onions", "1");
+        Topping onions = new Topping(id.toString(), "onions", 1);
         availableToppings.put(id, onions);
         id += 1;
-        Topping peppers = new Topping(id.toString(), "peppers", "1");
+        Topping peppers = new Topping(id.toString(), "peppers", 1);
         availableToppings.put(id, peppers);
         id += 1;
-        Topping sausages = new Topping(id.toString(), "sausages", "1");
+        Topping sausages = new Topping(id.toString(), "sausages", 1);
         availableToppings.put(id, sausages);
         id += 1;
-        Topping tomato = new Topping(id.toString(), "tomato", "1");
+        Topping tomato = new Topping(id.toString(), "tomato", 1);
         availableToppings.put(id, tomato);
         id += 1;
     }

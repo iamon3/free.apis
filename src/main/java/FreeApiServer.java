@@ -10,6 +10,7 @@ import org.eclipse.jetty.server.handler.*;
 import org.eclipse.jetty.util.thread.QueuedThreadPool;
 
 import com.sun.jersey.spi.container.servlet.ServletContainer;
+import com.filter.CORSResponseFilter;
 
 /**
  Following blog was used for jetty + jersey integration.
@@ -34,6 +35,7 @@ public class FreeApiServer{
             ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
             context.setContextPath("/");
             context.addServlet(jerseyServletHolder, "/freeapis/*");
+            context.addFilter(CORSResponseFilter.class, "/*", 1);
 
             server.setHandler(context);
 
