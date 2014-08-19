@@ -47,6 +47,7 @@ A] Project Setup
     
 
 APIs
+
     A) Pizza
         GET  /freeapis/pizzas
         POST /freeapis/pizzas
