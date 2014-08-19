@@ -83,7 +83,7 @@ public class UserResource {
     @Path(USER_RESOURCE_PATH + TRANSACTIONS_RESOURCE_PATH)
     @Consumes({ MediaType.APPLICATION_XML, MediaType.TEXT_XML, MediaType.APPLICATION_JSON })
     @Produces({ MediaType.APPLICATION_XML, MediaType.TEXT_XML, MediaType.APPLICATION_JSON })
-    public Transaction saveTransaction(@PathParam("userId") String userId, @QueryParam("emailId") String emailId, Transaction transaction){
+    public Transaction saveTransaction(@PathParam("userId") String userId, @QueryParam("email") String emailId, Transaction transaction){
         Transaction trs = null;
         try {
             trs = getUserTransactionService().addUserTransaction(emailId, transaction);
