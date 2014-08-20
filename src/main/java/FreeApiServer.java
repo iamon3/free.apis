@@ -1,4 +1,3 @@
-import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.*;
 import org.eclipse.jetty.server.Server;
@@ -18,6 +17,10 @@ import com.filter.CORSResponseFilter;
  */
 public class FreeApiServer{
 
+    private static String ALLOWED_ORIGINS = "http://localhost:8080";
+
+    private static String ALLOWED_ORIGINS_CONTEXT_PARAM = "allowed-origins";
+
     public static void main(String[] args) throws Exception{
 
         try{
@@ -32,10 +35,12 @@ public class FreeApiServer{
             jerseyServletHolder.setInitParameter("com.sun.jersey.spi.container.ContainerRequestFilters", "com.sun.jersey.api.container.filter.LoggingFilter");
             jerseyServletHolder.setInitParameter("com.sun.jersey.spi.container.ContainerResponseFilters", "com.sun.jersey.api.container.filter.LoggingFilter");
 
+
             ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
             context.setContextPath("/");
             context.addServlet(jerseyServletHolder, "/freeapis/*");
             context.addFilter(CORSResponseFilter.class, "/*", 1);
+            context.setInitParameter(ALLOWED_ORIGINS_CONTEXT_PARAM,ALLOWED_ORIGINS); // Equivalent to <context-param> in web.xml
 
             server.setHandler(context);
 

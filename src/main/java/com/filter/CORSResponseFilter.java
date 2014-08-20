@@ -2,7 +2,6 @@ package com.filter;
 
 import java.io.IOException;
 
-import java.io.IOException;
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
@@ -14,11 +13,11 @@ import javax.servlet.http.HttpServletResponse;
 
 public class CORSResponseFilter implements Filter {
 
-    String[] allowedOrigins = new String[]{"http://localhost:8080"};
+    String[] allowedOrigins = null;
 
     @Override
     public void init(final FilterConfig filterConfig) throws ServletException {
-
+        allowedOrigins = filterConfig.getServletContext().getInitParameter("allowed-origins").split(",");
     }
 
     @Override
