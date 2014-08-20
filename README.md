@@ -23,6 +23,13 @@ A] Project Setup
    To build the project
    
     $ git clone https://github.com/iamon3/free.apis.git
+
+   Configure the APP server end-point in the src/main/java/FreeApiServer.java file . You need to update the property
+
+    private static String ALLOWED_ORIGINS = "http://localhost:8080,http://foo.com"; // comma separated allowed origins
+
+   Build the project
+    
     $ mvn clean; mvn package
     $ export PORT=9090
 
