@@ -1,6 +1,8 @@
 package com.filter;
 
 import java.io.IOException;
+import java.net.URI;
+import java.net.URISyntaxException;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -33,7 +35,6 @@ public class CORSResponseFilter implements Filter {
 
 
     private void doFilter(HttpServletRequest request, HttpServletResponse response, FilterChain chain) throws IOException, ServletException {
-        System.out.println(">>>>>>CORS Filter Before");
         chain.doFilter(request, response);
         System.out.println(">>>>>>CORS Filter After");
         String originHeader = request.getHeader("Origin");
@@ -56,7 +57,7 @@ public class CORSResponseFilter implements Filter {
 
     private boolean allowedOrigin(String originHeader){
         for(String origin : allowedOrigins){
-            if(originHeader.equals(origin)){
+            if(originHeader.equals(origin.trim())){
                 return true;
             }
         }
