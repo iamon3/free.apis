@@ -12,6 +12,7 @@ import com.persistence.beans.Transaction;
 import com.persistence.service.UserService;
 import com.persistence.service.UserTransactionService;
 
+import java.util.Collection;
 import java.util.List;
 
 /**
@@ -39,6 +40,22 @@ public class UserResource {
             throw new WebApplicationException(Response.Status.INTERNAL_SERVER_ERROR);
         }
         return userAdded;
+    }
+
+    /**
+     * curl -X GET http://127.0.0.1:9090/freeapis/users
+     */
+    @GET
+    @Path("")
+    @Produces({ MediaType.APPLICATION_XML, MediaType.TEXT_XML, MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN })
+    public Collection<User> getUsers()
+    {
+        Collection<User> u = getUserService().getUsers();
+        if(null != u){
+            return u;
+
+        }
+        throw new WebApplicationException(Response.Status.NOT_FOUND);
     }
 
     /**

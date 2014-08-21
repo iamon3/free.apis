@@ -1,5 +1,6 @@
 package com.persistence.dao;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -42,5 +43,9 @@ public class UserDao {
             return null;
         }
         return currentUsers.get(user.getEmail());
+    }
+
+    public Collection<User> getUsers(){
+        return currentUsers.values();
     }
 }

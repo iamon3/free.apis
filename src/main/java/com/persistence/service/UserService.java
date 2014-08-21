@@ -1,5 +1,6 @@
 package com.persistence.service;
 
+import java.util.Collection;
 import java.util.List;
 
 import com.persistence.beans.User;
@@ -18,7 +19,9 @@ public class UserService {
     public User addUser(User user){
         return getUserDao().addUser(user);
     }
-
+    public Collection<User> getUsers(){
+        return getUserDao().getUsers();
+    }
     private UserDao getUserDao(){
         return userDao;
     }
