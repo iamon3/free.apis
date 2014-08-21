@@ -91,6 +91,11 @@ B] Heroku Deployment Set up
      
    The demo of the deployed running free API server "freeapis" can be tested at the below mentioned link. 
 
-      http://foo.com/v1        (Will be updated soon)
+      http://free-pizza-apis.herokuapp.com
+
+   e.g. APIs will be as
+
+     http://free-pizza-apis.herokuapp.com/freeapis/pizzas
+     http://free-pizza-apis.herokuapp.com/freeapis/toppings
 
    Please note that in the case of no activity for some time period (e.g. 1hr), web app will go in idle state, in which case    the next URL access may result in the slower response or 404. 
