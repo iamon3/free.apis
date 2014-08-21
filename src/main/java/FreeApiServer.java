@@ -17,7 +17,7 @@ import com.filter.CORSResponseFilter;
  */
 public class FreeApiServer{
 
-    private static String ALLOWED_ORIGINS = "http://localhost:8080";
+    private static String ALLOWED_ORIGINS = "http://free-pizza-app.free-org.cloudbees.net, http://localhost:8080";
 
     private static String ALLOWED_ORIGINS_CONTEXT_PARAM = "allowed-origins";
 
