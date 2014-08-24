@@ -1,11 +1,11 @@
-Overview
-========
+Pizza APIs Overview
+===================
 
-This is my free pizza API server. The API server provides RESTful backend services for the Pizza APP server. To test end- t-end working, boot up APP server instance as well. Please refer to the README at the below mentioned link.
+This is the API server for the Pizza application. The API server provides RESTful backend APIs for the Pizza APP server. To test the end-to-end working, boot up the APP server instance along with the API server. Please refer to the README at the below mentioned link for the APP server set up and boot up.
 
         https://github.com/iamon3/free.pizzaapp
 
-I followed following links for jersey framework + embeded Jetty server integration.
+I have followed the blogs at the below mentioned links for the jersey framework & embeded Jetty server integration.
 
     https://devcenter.heroku.com/articles/getting-started-with-java
     http://www.tzehon.com/2012/11/06/microservices-with-jetty-and-jersey/
@@ -20,32 +20,38 @@ A] Project Setup
      2. git
      3. maven 3 +
       
-   To build the project
+   A]  Set up the API server on a sandbox
+   
+   1) Clone the repository
    
     $ git clone https://github.com/iamon3/free.apis.git
 
-   Configure the APP server end-point in the src/main/java/FreeApiServer.java file . You need to update the property
+   2) Configure the APP server end-point in the src/main/java/FreeApiServer.java file . You need to update the property as shown.
 
-    private static String ALLOWED_ORIGINS = "http://localhost:8080,http://foo.com"; // comma separated allowed origins
+    e.g private static String ALLOWED_ORIGINS = "http://localhost:8080,http://foo.com"; // comma separated allowed origins
 
-   Build the project
+   3) Build the API server
     
     $ mvn clean; mvn package
-    $ export PORT=9090
+    $ export PORT=9090         // Port for API server.
 
-   To start the Jetty server
+   4) Boot up the API server
    
     $ java -cp target/classes:"target/dependency/*" FreeApiServer
+    
+   5) Set up and Boot up the APP server. Refer
    
-   Once the server is started you will see following kind of logs on terminal
+    https://github.com/iamon3/free.pizzaapp
+   
+   Following kind of logs are displayed when the API server boots up.
    
         $ 2014-08-20 01:52:51.400:INFO:oejs.Server:jetty-7.6.0.v20120127
         $ 2014-08-20 01:52:51.472:INFO:oejsh.ContextHandler:started o.e.j.s.ServletContextHandler{/,null}
         $ 2014-08-20 01:52:51.501:INFO:oejs.AbstractConnector:Started SelectChannelConnector@0.0.0.0:9090      
       
-   To test the app locallyTo test the app locally (Following content will be updated soon. Check after few days.)
+   6) APIs can be tested against an HTTP request in the required format. e.g. CURL can be used for the same as below.
   
-      In the browser Enter the URL : http://localhost:9090/freeapis/pizzas
+       curl -i -H "Accept:application/json" http://localhost:9090/freeapis/pizzas
       
       
    To stop the server 
@@ -74,8 +80,21 @@ APIs
     
    
 
-B] Heroku Deployment Set up
----------------------------
+B] Live Demo : Heroku Deployment Set up
+---------------------------------------
+
+   The demo of the deployed running free API server "freeapis" can be tested at the below mentioned link. 
+
+      http://free-pizza-apis.herokuapp.com
+
+   e.g. APIs will be as
+
+     http://free-pizza-apis.herokuapp.com/freeapis/pizzas
+     http://free-pizza-apis.herokuapp.com/freeapis/toppings
+
+   Please note that in the case of no activity for some time period (e.g. 1hr), web app will go in idle state, in which case the next URL access may result in the slower response or 404. 
+
+   To deploy APP server on heroku, follow the steps mentioned.
 
   Pre-Requisite
   
@@ -89,13 +108,3 @@ B] Heroku Deployment Set up
      $ heroku create
      $ git push heroku master
      
-   The demo of the deployed running free API server "freeapis" can be tested at the below mentioned link. 
-
-      http://free-pizza-apis.herokuapp.com
-
-   e.g. APIs will be as
-
-     http://free-pizza-apis.herokuapp.com/freeapis/pizzas
-     http://free-pizza-apis.herokuapp.com/freeapis/toppings
-
-   Please note that in the case of no activity for some time period (e.g. 1hr), web app will go in idle state, in which case    the next URL access may result in the slower response or 404. 
