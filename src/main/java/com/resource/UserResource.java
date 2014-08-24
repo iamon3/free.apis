@@ -84,7 +84,7 @@ public class UserResource {
     @GET
     @Path(USER_RESOURCE_PATH + TRANSACTIONS_RESOURCE_PATH)
     @Produces({ MediaType.APPLICATION_XML, MediaType.TEXT_XML, MediaType.APPLICATION_JSON, MediaType.TEXT_PLAIN })
-    public List<Transaction> getTransactions(@PathParam("userId") String userId, @QueryParam("emailId") String emailId){
+    public List<Transaction> getTransactions(@PathParam("userId") String userId, @QueryParam("email") String emailId){
         List<Transaction> trs = null;
         try{
             trs = getUserTransactionService().getUserTransaction(emailId);

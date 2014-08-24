@@ -22,7 +22,7 @@ public class TransactionDao {
     }
 
     public Transaction addUserTransaction(String emailId, Transaction transaction){
-
+        transaction.setId(id.toString());
         if(!userTransactions.containsKey(emailId)){
             System.out.println("No transaction has been done by this user. " + emailId);
             userTransactions.put(emailId, new ArrayList<Transaction>());
@@ -30,6 +30,7 @@ public class TransactionDao {
 
         ArrayList<Transaction> transactions = userTransactions.get(emailId);
         transactions.add(transaction);
+        id +=1;
         return  transaction;
     }
 }

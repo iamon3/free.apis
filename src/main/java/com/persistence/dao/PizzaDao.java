@@ -37,7 +37,7 @@ public class PizzaDao {
     }
 
     private static void populatePizzas(){
-        Pizza simple = new Pizza(id.toString(), "Plane (Make your own pizza)", "Pizza Dough & Sauce",8);
+        Pizza simple = new Pizza(id.toString(), "Plane", "Pizza Dough & Sauce",8);
         availablePizzas.put(id,simple);
         id += 1;
         Pizza cheese = new Pizza(id.toString(), "Cheese", "cheese",9);

@@ -13,6 +13,7 @@ public class Transaction {
     private String userId;
     private String timestamp;
     private List<Pizza> pizzas;
+    private Integer price;
 
     @XmlElement
     public String getId() {
@@ -48,5 +49,14 @@ public class Transaction {
 
     public void setPizzas(List<Pizza> pizzas) {
         this.pizzas = pizzas;
+    }
+
+    @XmlElement
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
     }
 }
